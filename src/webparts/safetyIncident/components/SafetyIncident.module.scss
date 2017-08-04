@@ -1,0 +1,26 @@
+.incidentBox {
+  position:relative;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  text-align:center;
+  height:50px;
+  margin:2px;
+}
+.incidentBoxInner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width:100%;
+}
+.incidentBoxInner p {
+  margin:0px;
+}
+.incidentLabel {
+  font-weight:bolder;
+  font-size:medium;
+}
+.incidentLabelSm {
+    color:lightslategrey;
+    font-size:small;
+}

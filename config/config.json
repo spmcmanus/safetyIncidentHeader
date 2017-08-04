@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/safetyIncident/SafetyIncidentWebPart.js",
+      "manifest": "./src/webparts/safetyIncident/SafetyIncidentWebPart.manifest.json",
+      "outputPath": "./dist/safety-incident.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "safetyIncidentStrings": "webparts/safetyIncident/loc/{locale}.js"
+  }
+}
