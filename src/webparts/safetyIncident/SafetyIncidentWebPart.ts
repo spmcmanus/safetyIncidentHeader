@@ -15,7 +15,8 @@ export default class SafetyIncidentWebPart extends BaseClientSideWebPart<ISafety
 
   public render(): void {
     const element: React.ReactElement<ISafetyIncidentProps> = React.createElement(SafetyIncident, {
-      listName: this.properties.listName
+      listName: this.properties.listName,
+      siteName: this.properties.siteName
     });
     ReactDom.render(element, this.domElement);
   }
@@ -38,6 +39,10 @@ export default class SafetyIncidentWebPart extends BaseClientSideWebPart<ISafety
                 PropertyPaneTextField('listName', {
                   label: 'Sharepoint List Name',
                   value: 'DefaultListName'
+                }),
+                PropertyPaneTextField('siteName', {
+                  label: 'Sharepoint Site Name',
+                  value: 'Safety'
                 })
               ]
             }
