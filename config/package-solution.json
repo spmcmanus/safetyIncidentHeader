@@ -2,7 +2,7 @@
   "solution": {
     "name": "safety-incident-client-side-solution",
     "id": "90fb3816-2b8a-443d-a421-a04ffcb4d0e5",
-    "version": "1.0.0.0"
+    "version": "1.0.0.3"
   },
   "paths": {
     "zippedPackage": "solution/safety-incident.sppkg"

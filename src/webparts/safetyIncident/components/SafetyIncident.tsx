@@ -43,52 +43,56 @@ export default class SafetyIncident extends React.Component<ISafetyIncidentProps
   public componentDidMount() {
     const incidentId = this.retrieveIncidentId();
     const reactHandler = this;
+    // these constants could be established in the app properties if desired
     const rootUrl = window.location.origin;
     const listName = this.props.listName;
-    const siteName = this.props.siteName;
-    // build out url
-    const url = rootUrl + "/sites/" + siteName + "/_api/web/lists/GetByTitle('" + listName + "')/Items(" + incidentId + ")";
+    console.log("component did mount")
+
+    jquery('.pageHeader').addClass('something');
+
+    console.log("after first jquery call")
+    
+     //url: rootUrl + "/sites/apps/_api/web/lists/GetByTitle('" + listName + "')/Items(" + incidentId + ")",
+    const url = rootUrl + "/sites/apps/_api/web/lists";
+    console.log(url);
     jquery.ajax({
       url: url,
       type: "GET",
       dataType: "json",
       headers: { 'Accept': 'application/json; odata=verbose;' },
       success: (resultData) => {
+        console.log(resultData)
+        /*
         reactHandler.setState({
           incidentId: resultData.d.Id,
-          incidentDate: resultData.d.Occurred1, //occurred,
-          jobNumber: resultData.d.Job_x0020_Number,  //jobNumber,
-          incidentType: resultData.d.Incident_x0020_Type, //incidentType,
-          jobLocation: resultData.d.Title,//jobLocation,
-          containerWidth: 1000
+          incidentDate: resultData.d.occurred,
+          jobNumber: resultData.d.jobNumber,
+          incidenype: resultData.d.incidentType,
+          jobLocation: resultData.d.jobLocation,
+          containerWidth: document.getElementsByClassName('CanvasSection')[0].clientWidth
         });
+        */
       },
       error: (jqXHR, textStatus, errorThrown) => {
         console.log('jqXHR', jqXHR);
         console.log('text status', textStatus);
         console.log('error', errorThrown);
-      },
-      complete: () => {
-        window.dispatchEvent(new Event('resize'));
       }
     });
-    
+    /*
     // manual responsive adjustments
     jquery(window).resize(() => {
-      const section = jquery('.header-container');
-      let width = 1000;
-      if (section.length > 0 ) {
-        width = section.closest('.CanvasSection')[0].clientWidth;
-      } 
+      let width = document.getElementsByClassName('CanvasSection')[0].clientWidth;
       reactHandler.setState({
         incidentId: reactHandler.state.incidentId,
         incidentDate: reactHandler.state.incidentDate,
         jobNumber: reactHandler.state.jobNumber,
         incidentType: reactHandler.state.incidentType,
         jobLocation: reactHandler.state.jobLocation,
-        containerWidth: width
+        containerWidth: document.getElementsByClassName('CanvasSection')[0].clientWidth
       });
     });
+    */
   }
 
   // extract the incident id from the url
